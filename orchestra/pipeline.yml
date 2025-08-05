@@ -1,0 +1,25 @@
+version: v1
+name: Shopify
+pipeline:
+  05595649-78ce-494f-bcd0-3eab33979bfa:
+    tasks:
+      6dd5fc3a-a870-4b8e-b26e-771f484b98a0:
+        integration: PYTHON
+        integration_job: PYTHON_EXECUTE_SCRIPT
+        parameters:
+          command: python dlt/shopify_simple_pipeline.py
+          package_manager: PIP
+          python_version: '3.12'
+          build_command: pip install -r dlt/requirements.txt
+          branch: main
+          set_outputs: true
+        depends_on: []
+        name: Run dlt
+        tags: []
+        connection: shopify_analytics_82873
+    depends_on: []
+    name: ''
+schedule: []
+sensors: {}
+webhook:
+  enabled: false
